@@ -24,17 +24,8 @@ var serviceAccount = require("./serviceAccountKey.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
-app.use(expressSession({
-    secret:'assignment',
-}))
-global.userId=null;
-global.usertype=null;
-app.use('*',(req,res,next)=>{
-  userId=req.session.userId;
-  usertype=req.session.userType;
-  console.log(userId)
-  next();
-})
+
+
 
 
 app.use(cors());
